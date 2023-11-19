@@ -1,0 +1,11 @@
+.ingredientCard {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.constructorIngredient {
+  width: 90%;
+}
+

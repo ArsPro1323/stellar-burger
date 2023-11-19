@@ -1,0 +1,8 @@
+.ingredientsSection {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 112px);
+  overflow-y: scroll;
+}

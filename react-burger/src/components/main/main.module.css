@@ -1,0 +1,8 @@
+.mainWindow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 90%;
+  max-width: 1600px;
+  margin: 0 auto;
+}

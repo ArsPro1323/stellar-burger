@@ -1,0 +1,8 @@
+.ingredientTable {
+  width: 100%;
+}
+
+.itemsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
