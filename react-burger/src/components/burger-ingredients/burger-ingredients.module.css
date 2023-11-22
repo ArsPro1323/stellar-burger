@@ -1,8 +1,12 @@
-.ingredientsSection {
+.ingredientsTable {
   width: 100%;
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 112px);
+  height: calc(100vh - 312px);
   overflow-y: scroll;
+}
+
+.tabs {
+  display: flex;
 }

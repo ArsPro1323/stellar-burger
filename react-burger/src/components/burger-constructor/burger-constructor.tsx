@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ConstructorElement, CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components'
+import React, { useState } from 'react';
+import { CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components'
 import { ConstructorTopElement, ConstructorBottomElement, ConstructorMidElement } from './constructor-element/constructor-element';
 import { IngredientsType } from '../burger-ingredients/burger-ingredients-types';
 import styles from "./burger-constructor.module.css"
@@ -32,18 +32,20 @@ export function BurgerConstructor(props: IngredientsType) {
   }
 
   return(
-    <section className={styles.burgerConstructor}>
-      <div className={`${styles.elements} pt-25`} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <ConstructorTopElement isLocked={true} item={props.buns[0]} />
+    <section className={`${styles.burgerConstructor} pt-25`}>
+      <ConstructorTopElement isLocked={true} item={props.buns[0]} />
+      <div className={ styles.elements }>
         {props.sauces.map((item) => {
-            return <ConstructorMidElement isLocked={false} item={item} />
+            return <ConstructorMidElement key={ item._id } isLocked={false} item={item} />
         })}
         {props.mains.map((item) => {
-            return <ConstructorMidElement isLocked={false} item={item} />
+            return <ConstructorMidElement key={ item._id } isLocked={false} item={item} />
         })}
-        <ConstructorBottomElement isLocked={true} item={props.buns[1]} />
+        
       </div>
-      <div className={`${styles.buttonSection} pt-10`}>
+      <ConstructorBottomElement isLocked={true} item={props.buns[0]} />
+
+      <div className={`${styles.buttonSection} pt-8`}>
         <p className={`${styles.amount} text text_type_main-medium pr-10`}>{ orderAmount } <CurrencyIcon type="primary" /></p>
         <Button htmlType="button" type="primary" size="large" onClick={() => onModalOpen()}>Оформить заказ</Button>
       </div>

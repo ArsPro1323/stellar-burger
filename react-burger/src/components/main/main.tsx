@@ -1,5 +1,4 @@
 import React, { useState, useEffect, ReactNode } from 'react';
-import ReactDOM from 'react-dom/client';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import { BurgerConstructor } from '../burger-constructor/burger-constructor';
 import getIngredients from '../../services/get-ingredients/get-ingredients';
@@ -32,12 +31,10 @@ export default function MainContent() {
 
     if (loading) {
         return (
-            <>
-                <main className={styles.mainWindow}>
-                    <BurgerIngredients buns={bun} mains={main} sauces={sauce} />
-                    <BurgerConstructor buns={bun} mains={main} sauces={sauce} />
-                </main>  
-            </>
+            <main className={styles.mainWindow}>
+                <BurgerIngredients buns={bun} mains={main} sauces={sauce} />
+                <BurgerConstructor buns={bun} mains={main} sauces={sauce} />
+            </main>  
         );
     }
     return (
