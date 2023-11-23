@@ -4,5 +4,5 @@ export interface cardData {
   image: string;
   name: string;
   price: string;
-  onClick?: () => void;
+  item: Ingredients;
 }
