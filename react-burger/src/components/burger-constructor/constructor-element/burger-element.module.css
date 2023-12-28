@@ -1,0 +1,15 @@
+.ingredientCard {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.constructorIngredient {
+  width: 90%;
+}
+
+.bunElement {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

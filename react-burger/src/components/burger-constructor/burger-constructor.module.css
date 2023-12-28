@@ -1,0 +1,15 @@
+.elements {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: calc(100vh - 532px);
+  gap: 10px;
+}
+
+.buttonSection {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
