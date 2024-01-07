@@ -67,6 +67,8 @@ export function BurgerConstructor() {
     setIsModalOpen(true);
   }, [elements, bun])
 
+  const { v4: uuidv4 } = require('uuid');
+
   return(
     <section ref={drop(dropBetween(myRef))} className={`${styles.burgerConstructor} pt-25`}>
       <div className={ styles.elements }>
@@ -75,7 +77,7 @@ export function BurgerConstructor() {
         )} 
         <div className={ styles.mainElements }>
           {elements.map((item, index) => {
-              return <ConstructorMidElement key={ item._id + index } isLocked={false} item={item} index={index}/>
+              return <ConstructorMidElement key={ uuidv4() } isLocked={false} item={item} index={index}/>
           })}
         </div>
         
