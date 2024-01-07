@@ -12,10 +12,12 @@ import {
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDrop } from "react-dnd";
 import { clearConstructor } from '../../services/actions/constructor-action';
+import { AppDispatch, RootState } from '../../services/reducers/store';
+import { Ingredients } from '../../services/get-ingredients/get-ingredients-types';
 
 export function BurgerConstructor() {
   const myRef = useRef();
-  const handleAdding = (item, pos) => {
+  const handleAdding = (item: any, pos: any) => {
     if (item && item.type === 'bun') {
       dispatch(changeBun(item));
     } else {
@@ -23,13 +25,11 @@ export function BurgerConstructor() {
     }
   }
 
-  const [order, setOrder] = useState("");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   
 
-  const dispatch = useDispatch();
-  const {elements, bun} = useSelector((state) => state.elementConstructor)
+  const dispatch = useDispatch<AppDispatch>();
+  const {elements, bun} = useSelector((state: RootState) => state.elementConstructor)
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'card',
@@ -60,16 +60,18 @@ export function BurgerConstructor() {
 
   const makeOrder = useCallback(async () => {
     const baseElements = elements.map(elem => elem._id);
-    const orderDetails = await sendIngredients({ ingredients: (bun ? baseElements.concat(bun._id) : baseElements)})
+    const ingredients = bun ? baseElements.concat(bun._id) : baseElements;
+    await dispatch(sendIngredients({ingredients}));
     dispatch(clearConstructor());
-
-    orderDetails && setOrder(orderDetails.order.number.toString())
     setIsModalOpen(true);
   }, [elements, bun])
 
   const { v4: uuidv4 } = require('uuid');
 
+  const order = useSelector((state: RootState) => state.order.orderId);
+
   return(
+    // @ts-ignore
     <section ref={drop(dropBetween(myRef))} className={`${styles.burgerConstructor} pt-25`}>
       <div className={ styles.elements }>
         { bun && (

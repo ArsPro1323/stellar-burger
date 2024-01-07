@@ -14,6 +14,15 @@ export interface Ingredients {
   type: string;
 }
 
+export const BASE_URL = 'https://norma.nomoreparties.space/api';
+
+export enum ActionState {
+  INITIAL = '_INITIAL',
+  LOADING = '_LOADING',
+  ERROR = '_ERROR',
+  SUCCESS = '_SUCCESS'
+}
+
 export interface IngredientsResp {
   success: boolean;
   data: Ingredients[];
@@ -37,7 +46,18 @@ export interface BurgerComponents {
   sauce: Ingredients[];
 }
 
+export interface BurgerData {
+  entities: BurgerComponents;
+  state: ActionState;
+}
+
 export interface Burger {
   elements: Ingredients[];
   bun: Ingredients | null;
+  state: ActionState;
+}
+
+export interface OrderData {
+  orderId: string,
+  state: ActionState,
 }

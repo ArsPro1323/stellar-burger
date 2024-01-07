@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Burger } from './types';
+import { ActionState, Burger } from './types';
 
-const initial = { elements: [], bun: null } as Burger;
+const initial = { elements: [], bun: null, state: ActionState.INITIAL } as Burger;
 
 const { actions, reducer } = createSlice({
   name: 'ELEMENT_CONSTRUCTOR',

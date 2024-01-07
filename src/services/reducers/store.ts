@@ -3,12 +3,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import ingredientsReducer from './ingredients-reducer'
 import constructorReducer from './constructor-reducer'
 import modalReducer from './modal-reducer'
+import orderReducer from './order-reducer'
 
 const store = configureStore({
   reducer: {
     ingredients: ingredientsReducer,
     elementConstructor: constructorReducer,
     modalWindow: modalReducer,
+    order: orderReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,

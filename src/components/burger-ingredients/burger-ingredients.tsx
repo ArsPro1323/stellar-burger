@@ -80,9 +80,9 @@ export default function BurgerIngredients() {
   //   sauces: store.ingredients.sauce
   // }))
 
-  const buns = useSelector((store: RootState) => store.ingredients.bun);
-  const mains = useSelector((store: RootState) => store.ingredients.main);
-  const sauces = useSelector((store: RootState) => store.ingredients.sauce);
+  const buns = useSelector((store: RootState) => store.ingredients.entities.bun);
+  const mains = useSelector((store: RootState) => store.ingredients.entities.main);
+  const sauces = useSelector((store: RootState) => store.ingredients.entities.sauce);
 
   return(
     <div className={styles.ingredientsSection}>
